@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions, wait
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -12,8 +12,9 @@ class WebEl(object):
 
     def __init__(self, driver, locator):
         self.driver = driver # type:WebDriver
-        WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located((By.XPATH, locator)))
-        self.element = driver.find_element_by_xpath(locator)
+        self.locator = locator
+        webWait = WebDriverWait(driver=driver, timeout=10)
+        self.element = webWait.until(expected_conditions.element_to_be_clickable((By.XPATH, locator)))
 
     def getValue(self):
         return self.element.get_attribute("value")

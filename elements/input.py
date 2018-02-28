@@ -2,6 +2,7 @@ from elements.baseElement import WebEl
 
 
 class Input(WebEl):
+
     def __init__(self, driver, locator):
         super().__init__(driver, locator)
 
