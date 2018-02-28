@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 
 class LoginLocators(object):
-    EMAIL_BOX = '//*[@type="email"]'
-    PASSWORD_BOX = '//*[@type="password"]'
-    NEXT_BTN = '//*[@role="button" and @id="identifierNext"]'
-    PASSWORD_NEXT_BTN = '//*[@role="button" and @id="passwordNext"]'
+    EMAIL_BOX = '(//*[contains(@class, "LoginForm-username")])[1]/input'
+    PASSWORD_BOX = '(//*[contains(@class, "LoginForm-password")])[1]/input'
+    SIGN_UP_BTN = '(//input[@type="submit"])[1]'

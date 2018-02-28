@@ -13,6 +13,7 @@ class Application:
         else:
             raise ValueError("Unrecognized browser %s" % browser)
         self.driver.implicitly_wait(5)
+        self.driver.maximize_window()
         self.verificationErrors = []
         self.accept_next_alert = True
         self.loginPage = Login(self, driver=self.driver)  # reference to SessionHelper which has login() method

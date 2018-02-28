@@ -1,2 +1,2 @@
 class Constants:
-    LOGIN_URL = "https://accounts.google.com"
+    LOGIN_URL = "https://twitter.com/"

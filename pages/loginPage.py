@@ -12,24 +12,21 @@ class Login(BasePage):
         super().__init__(driver)
         self.app = app
 
-    def inputLoginAndSubmit(self, username):
-        driver = self.app.driver  # type:WebDriver
-        driver.get(Constants.LOGIN_URL)
+    def openLoginPage(self):
+        self.driver = self.app.driver  # type:WebDriver
+        self.driver.get(Constants.LOGIN_URL)
 
-        email = Input(driver=driver, locator=LoginLocators.EMAIL_BOX)
-        email.setText(username)
+    def inputEmail(self, emailOrName):
+        email = Input(driver=self.driver, locator=LoginLocators.EMAIL_BOX)
+        email.clear()
+        email.setText(emailOrName)
 
-        nextBtn = Button(driver=driver, locator=LoginLocators.NEXT_BTN)
-        nextBtn.click()
-
-        # add assertion
-
-    def inputPasswordAndSubmit(self, password):
-        driver = self.app.driver  # type:WebDriver
-
-        passwordField = Input(driver=driver, locator=LoginLocators.PASSWORD_BOX)
+    def inputPassword(self, password):
+        passwordField = Input(driver=self.driver, locator=LoginLocators.PASSWORD_BOX)
+        passwordField.clear()
         passwordField.setText(password)
 
-        nextBtn = Button(driver=driver, locator=LoginLocators.PASSWORD_NEXT_BTN)
-        nextBtn.click()
+    def clickLogIn(self):
+        logInBtn = Button(driver=self.driver, locator=LoginLocators.SIGN_UP_BTN)
+        logInBtn.click()
 
