@@ -3,6 +3,7 @@ from selenium import webdriver
 import conftest
 from pages.loginPage import LoginPage
 from steps.loginSteps import LoginSteps
+from steps.mainSteps import MainSteps
 from utils import NextLogger
 
 
@@ -18,8 +19,14 @@ class Application:
         self.driver.maximize_window()
         self.verificationErrors = []
         self.accept_next_alert = True
+
         self.nLogger = NextLogger.Nextlogger()
+
         self.loginStep = LoginSteps(driver=self.driver)  # reference to SessionHelper which has login() method
+        self.nLogger.set_up_logger(__name__)
+        self.loginStep.set_logger(self.nLogger)
+
+        self.mainStep = MainSteps(driver=self.driver)
 
     def is_valid(self):
         try:

@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions, wait
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class WebEl(object):
+class WebEl(object): # type:WebElement
     """Base page class that is initialized on every page object class."""
 
     element = None  # type:WebElement
@@ -21,3 +21,6 @@ class WebEl(object):
 
     def getAttribute(self, attrName):
         return self.element.get_attribute(attrName)
+
+    def getText(self):
+        return self.element.text

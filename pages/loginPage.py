@@ -1,8 +1,8 @@
 from contants.constants import Constants
 from elements.button import Button
 from elements.input import Input
-from locators.loginLocators import LoginLocators
 from pages.basePage import BasePage
+from pages.locators.loginLocators import LoginLocators
 
 
 class LoginPage(BasePage):
